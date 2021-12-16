@@ -30,7 +30,6 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-
             //log-file (check or create)
             if (File.Exists("log.log"))
             {
@@ -54,15 +53,12 @@ namespace ConsoleApp1
                     Console.WriteLine("Log-File does not create");
                 }
             }
-
             Console.WriteLine("monitoring");
-
             //check argument
             if (args.Length==3)
             {
                 if (!args[0].Intersect(System.IO.Path.GetInvalidFileNameChars()).Any())
                 {
-
                     int t, p;
                     if (Int32.TryParse(args[1], out t) && Int32.TryParse(args[2], out p))
                     {
@@ -100,7 +96,6 @@ namespace ConsoleApp1
                 File.AppendAllText("log.log", DateTime.Now.ToString() + ": Not Arguments"+Environment.NewLine);
                 Console.WriteLine("Not 3 Arguments (ProcessName, Time, Period)");
             }
-            
             //close
             Console.ReadLine();
             File.AppendAllText("log.log", DateTime.Now.ToString() + ": Close application." + Environment.NewLine);
